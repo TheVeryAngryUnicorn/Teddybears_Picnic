@@ -17,12 +17,12 @@ fi
 echo "Current User" && whoami
 echo "Current Directory" && pwd
 
-mkdir /tmp/CGI_pentest/
-cd /tmp/CGI_pentest/
+mkdir /tmp/pentest/
+cd /tmp/pentest/
 mkdir "$HOSTNAME"_"$DATE" 
 cd "$HOSTNAME"_"$DATE"
 
-chown $WhoDis /tmp/CGI_pentest/"$HOSTNAME"_"$DATE" -R
+chown $WhoDis /tmp/pentest/"$HOSTNAME"_"$DATE" -R
 
 echo "Recruiting Teddies"
 #Grab System Info
@@ -104,6 +104,6 @@ find / -type f -iname "*.old" 2>/dev/null -ls > files_old_"$HOSTNAME".txt
 #Password Hunting
 grep -rHi 'password=' /home/ > home_password_"$HOSTNAME".txt
 
-chmod 764 /tmp/CGI_pentest/"$HOSTNAME"_"$DATE" -R
+chmod 764 /tmp/pentest/"$HOSTNAME"_"$DATE" -R
 
 echo "Picnic Time!!"
