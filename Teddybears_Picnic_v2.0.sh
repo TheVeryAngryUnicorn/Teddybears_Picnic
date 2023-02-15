@@ -129,9 +129,16 @@ find / -type f -iname "*.old" 2>/dev/null -ls > /tmp/pentest/"$HOSTNAME"_"$DATE"
 echo "Recruiting Password Teddies"
 #Password Hunting
 grep -rHi 'password=' /home/ > /tmp/pentest/"$HOSTNAME"_"$DATE"/home_password_"$HOSTNAME".txt
-grep --color=auto -rnw '/' -ie "PASSWORD" --color=always 2> /dev/null > /tmp/pentest/"$HOSTNAME"_"$DATE"/grep_password_"$HOSTNAME".txt
+grep -rHi 'password=' /etc/ > /tmp/pentest/"$HOSTNAME"_"$DATE"/etc_password_"$HOSTNAME".txt
+grep -rHi 'password=' /opt/ > /tmp/pentest/"$HOSTNAME"_"$DATE"/opt_password_"$HOSTNAME".txt
+grep -rHi 'password=' /var/ > /tmp/pentest/"$HOSTNAME"_"$DATE"/var_password_"$HOSTNAME".txt
+grep -rHi 'password=' /tmp/ > /tmp/pentest/"$HOSTNAME"_"$DATE"/tmp_password_"$HOSTNAME".txt
+grep -rHi 'password=' /mnt/ > /tmp/pentest/"$HOSTNAME"_"$DATE"/mnt_password_"$HOSTNAME".txt
+grep -rHi 'password=' /usr/ > /tmp/pentest/"$HOSTNAME"_"$DATE"/usr_password_"$HOSTNAME".txt
+
 #this one takes too long
 #find . -type f -exec grep -i -I "PASSWORD" {} /dev/null \ > /tmp/pentest/"$HOSTNAME"_"$DATE"/find_password_"$HOSTNAME".txt
+#grep --color=auto -rnw '/' -ie "PASSWORD" --color=always 2> /dev/null >> /tmp/pentest/"$HOSTNAME"_"$DATE"/grep_password_"$HOSTNAME".txt
 
 echo "Recruiting Capability Teddies"
 #capability hunting
