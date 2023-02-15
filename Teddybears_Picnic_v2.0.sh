@@ -129,7 +129,8 @@ echo "Recruiting Password Teddies"
 #Password Hunting
 grep -rHi 'password=' /home/ > /tmp/pentest/"$HOSTNAME"_"$DATE"/home_password_"$HOSTNAME".txt
 grep --color=auto -rnw '/' -ie "PASSWORD" --color=always 2> /dev/null > /tmp/pentest/"$HOSTNAME"_"$DATE"/grep_password_"$HOSTNAME".txt
-find . -type f -exec grep -i -I "PASSWORD" {} /dev/null \ > /tmp/pentest/"$HOSTNAME"_"$DATE"/find_password_"$HOSTNAME".txt
+#this one takes too long
+#find . -type f -exec grep -i -I "PASSWORD" {} /dev/null \ > /tmp/pentest/"$HOSTNAME"_"$DATE"/find_password_"$HOSTNAME".txt
 
 echo "Recruiting Capability Teddies"
 #capability hunting
