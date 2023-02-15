@@ -30,7 +30,6 @@ uname -a > /tmp/pentest/"$HOSTNAME"_"$DATE"/uname_"$HOSTNAME".txt
 ps aux > /tmp/pentest/"$HOSTNAME"_"$DATE"/running_processes_"$HOSTNAME".txt
 lsblk > /tmp/pentest/"$HOSTNAME"_"$DATE"/lsblk_"$HOSTNAME".txt
 systemctl status > /tmp/pentest/"$HOSTNAME"_"$DATE"/systemctl_"$HOSTNAME".txt
-crontab -l > /tmp/pentest/"$HOSTNAME"_"$DATE"/crontab_"$HOSTNAME".txt
 lpstat -a > /tmp/pentest/"$HOSTNAME"_"$DATE"/printers_"$HOSTNAME".txt
 lsof -i > /tmp/pentest/"$HOSTNAME"_"$DATE"/lsof_"$HOSTNAME".txt
 
@@ -72,6 +71,7 @@ cat /etc/ssh/sshd_config > /tmp/pentest/"$HOSTNAME"_"$DATE"/sshd_config_"$HOSTNA
 cat /etc/passwd > /tmp/pentest/"$HOSTNAME"_"$DATE"/passwd__"$HOSTNAME".txt
 cat /etc/group > /tmp/pentest/"$HOSTNAME"_"$DATE"/group_"$HOSTNAME".txt
 cat /etc/sudoers > /tmp/pentest/"$HOSTNAME"_"$DATE"/sudoers_"$HOSTNAME".txt
+cat /etc/crontab  > /tmp/pentest/"$HOSTNAME"_"$DATE"/crontab_"$HOSTNAME".txt
 cat /etc/fstab > /tmp/pentest/"$HOSTNAME"_"$DATE"/fstab_"$HOSTNAME".txt
 cat /etc/rsyslog.conf > /tmp/pentest/"$HOSTNAME"_"$DATE"/rsyslogconfig_"$HOSTNAME".txt
 cat /etc/modprobe.d/CIS.conf > /tmp/pentest/"$HOSTNAME"_"$DATE"/CIS_"$HOSTNAME".txt
@@ -83,8 +83,9 @@ cat /boot/grub2/grub.cfg > /tmp/pentest/"$HOSTNAME"_"$DATE"/grub2_config_"$HOSTN
 cat /boot/grub2/user.cfg > /tmp/pentest/"$HOSTNAME"_"$DATE"/grub_user_"$HOSTNAME".txt
 cat /etc/services >> /tmp/pentest/"$HOSTNAME"_"$DATE"/Services_"$HOSTNAME".txt
 
-
-echo "THIS BIT TAKES A WHILE - GO MAKE A DRINK"
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+echo -e "${RED}THIS BIT TAKES A WHILE - GO MAKE A DRINK${NC}"
 
 echo "Recruiting Permission Teddies"
 #Check For Naughty User Perms
