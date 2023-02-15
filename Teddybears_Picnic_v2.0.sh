@@ -83,6 +83,9 @@ cat /boot/grub2/grub.cfg > /tmp/pentest/"$HOSTNAME"_"$DATE"/grub2_config_"$HOSTN
 cat /boot/grub2/user.cfg > /tmp/pentest/"$HOSTNAME"_"$DATE"/grub_user_"$HOSTNAME".txt
 cat /etc/services >> /tmp/pentest/"$HOSTNAME"_"$DATE"/Services_"$HOSTNAME".txt
 
+
+echo "THIS BIT TAKES A WHILE - GO MAKE A DRINK"
+
 echo "Recruiting Permission Teddies"
 #Check For Naughty User Perms
 ls -alR /home > /tmp/pentest/"$HOSTNAME"_"$DATE"/home_privs_"$HOSTNAME".txt
